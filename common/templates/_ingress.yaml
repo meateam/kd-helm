@@ -1,0 +1,56 @@
+{{- define "common.ingress" -}}
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "common.fullname" . -}}
+{{- $ingressPath := .Values.ingress.path -}}
+{{- $ingressPath2 := .Values.ingress.path2 -}}
+{{- $ingressPath3 := .Values.ingress.path3 -}}
+{{- $ingressPath4 := .Values.ingress.path4 -}}
+{{- $name3 := .Values.service.name3 -}}
+{{- $common := dict "Values" .Values.common -}} 
+{{- $noCommon := omit .Values "common" -}} 
+{{- $overrides := dict "Values" $noCommon -}} 
+{{- $noValues := omit . "Values" -}} 
+{{- with merge $noValues $overrides $common -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+{{ template "common.metadata" . }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+# {{- if .Values.ingress.tls }}
+#   tls:
+#   {{- range .Values.ingress.tls }}
+#     - hosts:
+#       {{- range .hosts }}
+#         - {{ . | quote }}
+#       {{- end }}
+#       secretName: {{ .secretName }}
+#   {{- end }}
+# {{- end }}
+  rules:
+  {{- range .Values.global.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: {{ $ingressPath }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+          - path: {{ $ingressPath2 }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+          - path: {{ $ingressPath3 }}
+            backend:
+              serviceName: {{ $name3 }}
+              servicePort: http
+          - path: {{ $ingressPath4 }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+  {{- end }}
+{{- end }}
+{{- end -}}
+{{- end -}}
