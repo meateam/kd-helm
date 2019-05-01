@@ -2,3 +2,6 @@ dependencies:
   - name: web-ui
     version: 0.1.0
     repository: file://../web-ui
+  - name: file-service
+    version: 0.1.0
+    repository: file://../file-service
