@@ -19,7 +19,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: PUT HERE SERVICE NAME
+              serviceName: web-ui
               servicePort: http
   {{- end }}
 {{- end -}}

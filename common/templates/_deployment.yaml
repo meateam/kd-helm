@@ -21,10 +21,10 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}/blue-stream/{{ template "common.name" . }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}/meateam/{{ template "common.name" . }}:{{ .Values.image.tag }}"
           envFrom:
           - configMapRef:
-              name: bs.config
+              name: kd.config
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

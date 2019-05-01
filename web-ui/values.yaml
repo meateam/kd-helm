@@ -5,32 +5,32 @@
 replicaCount: 1
 
 image:
-  tag: 
+  tag: "707044a"
 
-nameOverride: "kd-demo"
-fullnameOverride: "kd-demo"
-# deployment:
-#   health:
-#     enabled: false
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /client
-#           port: 80
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /client
-#           port: 80
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+nameOverride: "web-ui"
+fullnameOverride: "web-ui"
+deployment:
+  health:
+    enabled: false
+    checks:
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 80

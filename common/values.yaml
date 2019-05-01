@@ -19,7 +19,7 @@ service:
 global:
   ingress:
       hosts:
-        - 'blue-stream.northeurope.cloudapp.azure.com'
+        - 'omer.northeurope.cloudapp.azure.com'
 ingress:
   enabled: false
   annotations: 
@@ -33,7 +33,7 @@ ingress:
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
     # ingress.kubernetes.io/proxy-body-size: "1000m"
   # hosts:
-  #   - 'blue-stream.northeurope.cloudapp.azure.com'
+  #   - 'kd-stream.northeurope.cloudapp.azure.com'
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

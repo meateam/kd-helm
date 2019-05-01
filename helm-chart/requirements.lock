@@ -1,0 +1,6 @@
+dependencies:
+- name: web-ui
+  repository: file://../web-ui
+  version: 0.1.0
+digest: sha256:3b4aeb4e3e8013aa04dbd69cd86d04b0afe7f9fbfe5f9a483224f9f92b8c0cc6
+generated: 2019-05-01T10:56:44.528012323+03:00

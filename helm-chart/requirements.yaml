@@ -1,3 +1,4 @@
-  - name: kd-demo
+dependencies:
+  - name: web-ui
     version: 0.1.0
-    repository: file://../kd-demo
+    repository: file://../web-ui

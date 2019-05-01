@@ -1,0 +1,6 @@
+dependencies:
+- name: common
+  repository: file://../common
+  version: 0.1.0
+digest: sha256:f3fc162e157c9b9462de87232ee22600d85f95fb509794e56dbe25e59ec34e12
+generated: 2019-05-01T10:56:42.253828751+03:00
