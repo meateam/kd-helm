@@ -11,3 +11,6 @@ dependencies:
   - name: upload-service
     version: 0.1.0
     repository: file://../upload-service
+  - name: file-service
+    version: 0.1.0
+    repository: file://../file-service

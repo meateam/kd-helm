@@ -5,39 +5,39 @@
 replicaCount: 1
 
 image:
-  tag: "5ffc377"
+  tag: "caedc5a"
 
-nameOverride: "web-ui"
-fullnameOverride: "web-ui"
-deployment:
-  health:
-    enabled: false
-    checks:
-      livenessProbe:
-        httpGet:
-          path: /
-          port: 80
-        initialDelaySeconds: 30
-        periodSeconds: 15
-        timeoutSeconds: 1
-        successThreshold: 1
-        failureThreshold: 3
-      readinessProbe:
-        httpGet:
-          path: /
-          port: 80
-        initialDelaySeconds: 30
-        periodSeconds: 15
-        timeoutSeconds: 1
-        successThreshold: 1
-        failureThreshold: 3
+nameOverride: "file-service"
+fullnameOverride: "file-service"
+# deployment:
+#   health:
+#     enabled: false
+#     checks:
+#       livenessProbe:
+#         httpGet:
+#           path: /
+#           port: 80
+#         initialDelaySeconds: 30
+#         periodSeconds: 15
+#         timeoutSeconds: 1
+#         successThreshold: 1
+#         failureThreshold: 3
+#       readinessProbe:
+#         httpGet:
+#           path: /
+#           port: 80
+#         initialDelaySeconds: 30
+#         periodSeconds: 15
+#         timeoutSeconds: 1
+#         successThreshold: 1
+#         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 50051
+  targetPort: 50051
 
 ingress:
-  enabled: true
+  enabled: false
 
   tls: []
   #  - secretName: chart-example-tls

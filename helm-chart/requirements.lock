@@ -11,5 +11,8 @@ dependencies:
 - name: upload-service
   repository: file://../upload-service
   version: 0.1.0
-digest: sha256:a5bf2c8e40bff588648fa9fbf79df046aaba4c37c63982ce7ed5d60c1905f743
-generated: 2019-05-02T12:46:10.654406914+03:00
+- name: file-service
+  repository: file://../file-service
+  version: 0.1.0
+digest: sha256:57fb97afea504ea1217508354336b35c5ee0b9a8bc27e5ce7a5e957f089f75db
+generated: 2019-05-02T14:59:37.015512528+03:00

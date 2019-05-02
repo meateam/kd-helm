@@ -31,7 +31,7 @@ ingress:
     nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
     nginx.ingress.kubernetes.io/cors-allow-origin: "*.northeurope.cloudapp.azure.com"
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    # ingress.kubernetes.io/proxy-body-size: "1000m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "5242880m"
   # hosts:
   #   - 'kd-stream.northeurope.cloudapp.azure.com'
   tls: []
