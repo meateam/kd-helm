@@ -2,3 +2,12 @@ dependencies:
   - name: web-ui
     version: 0.1.0
     repository: file://../web-ui
+  - name: api-gateway
+    version: 0.1.0
+    repository: file://../api-gateway
+  - name: download-service
+    version: 0.1.0
+    repository: file://../download-service
+  - name: upload-service
+    version: 0.1.0
+    repository: file://../upload-service
