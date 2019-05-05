@@ -32,6 +32,9 @@ ingress:
     nginx.ingress.kubernetes.io/cors-allow-origin: "*.northeurope.cloudapp.azure.com"
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: "5242880m"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1d"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "1d"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "1d"
   # hosts:
   #   - 'kd-stream.northeurope.cloudapp.azure.com'
   tls: []
