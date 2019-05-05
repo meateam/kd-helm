@@ -19,7 +19,7 @@ service:
 global:
   ingress:
       hosts:
-        - 'omer.northeurope.cloudapp.azure.com'
+        - ''
 ingress:
   enabled: false
   annotations: 
