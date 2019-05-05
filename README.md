@@ -50,3 +50,8 @@ In order to add a new service to the helm chart follow the steps:
       helm install <chart to deploy> --name <deployment name> --namespace <wanted namespace> --set global.ingress.hosts[0]=<wanted namespace>.northeurope.cloudapp.azure.com
     ```
     In order to deploy all of the services, use `helm-chart` as the chart to deploy.
+  
+  -  In order to see your deployment status use:
+      ```
+        helm status <deployment name>
+      ```
