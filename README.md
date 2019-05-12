@@ -39,6 +39,7 @@ In order to add a new service to the helm chart follow the steps:
 
 ## Deploy To Kubernetes
   ### After editing the chart, run the following commands:
+  - To Initialize Helm run: `helm init --client-only`
   - `./helm-dep-up-umbrella.sh helm-chart/` in the main repo directory.
   - If you are updating the environment or want to deploy your environment with the same deployment name you need to delete your deployment first.
   
