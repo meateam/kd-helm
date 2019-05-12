@@ -31,9 +31,9 @@ In order to add a new service to the helm chart follow the steps:
 - In `helm-chart\requirements.yaml`
   - Add: 
     ```
-      - name: <new service name>
-        version: <new service version>
-        repository: file://../<new service name>
+    - name: <new service name>
+      version: <new service version>
+      repository: file://../<new service name>
     ```
 **Make sure everything is Indented correctly!**
 
@@ -44,14 +44,27 @@ In order to add a new service to the helm chart follow the steps:
   
     use: 
     ```
-      helm del --purge <deployment name>
+    helm del --purge <deployment name>
     ``` 
   - ```
-      helm install <chart to deploy> --name <deployment name> --namespace <wanted namespace> --set global.ingress.hosts[0]=<wanted namespace>.northeurope.cloudapp.azure.com
+    helm install <chart to deploy> --name <deployment name> --namespace <wanted namespace> --set global.ingress.hosts[0]=<wanted namespace>.northeurope.cloudapp.azure.com
     ```
     In order to deploy all of the services, use `helm-chart` as the chart to deploy.
   
   -  In order to see your deployment status use:
       ```
-        helm status <deployment name>
+      helm status <deployment name>
       ```
+  ### Update ConfigMap:
+  - Delete ConfigMap:
+    ```
+    kubectl delete configmap kd.config --namespace <wanted namespace>
+    ```
+  - Recreate your ConfigMap:
+    ```
+    kubectl create configmap --from-env-file=<location of the env file> kd.config --namespace <wanted namespace>
+    ```
+  - Restart your deployment:
+    ```
+    helm upgrade <deployment name> helm-chart --recreate-pods --namespace <wanted namespace>
+    ```
