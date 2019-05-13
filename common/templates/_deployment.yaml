@@ -30,9 +30,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
-            - name: rpc
-              containerPort: {{ .Values.service.rpcPort }}
-              protocol: TCP
         
 {{- if .Values.deployment.health.enabled -}}
 {{- with .Values.deployment.health.checks }}

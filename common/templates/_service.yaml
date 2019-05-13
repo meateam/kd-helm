@@ -14,10 +14,6 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
       name: http
-    - port: {{ .Values.service.rpcPort }}
-      targetPort: {{ .Values.service.rpcPort }}
-      protocol: TCP
-      name: rpc
   selector:
     app.kubernetes.io/name: {{ include "common.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

@@ -14,8 +14,6 @@ fullnameOverride: ""
 service:
   type: ClusterIP
   port: 80
-  rpcPort: 6000
-  name3: none
 global:
   ingress:
       hosts:

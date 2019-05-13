@@ -2,35 +2,33 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
-  tag: "15b980f"
+  tag: "d31a15d"
 
 nameOverride: "download-service"
 fullnameOverride: "download-service"
-# deployment:
-  # health:
-  #   enabled: false
-  #   checks:
-  #     livenessProbe:
-  #       httpGet:
-  #         path: /
-  #         port: 80
-  #       initialDelaySeconds: 30
-  #       periodSeconds: 15
-  #       timeoutSeconds: 1
-  #       successThreshold: 1
-  #       failureThreshold: 3
-  #     readinessProbe:
-  #       httpGet:
-  #         path: /
-  #         port: 80
-  #       initialDelaySeconds: 30
-  #       periodSeconds: 15
-  #       timeoutSeconds: 1
-  #       successThreshold: 1
-  #       failureThreshold: 3
+deployment:
+  health:
+    enabled: false
+    checks:
+      livenessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 8080
