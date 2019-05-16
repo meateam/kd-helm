@@ -14,5 +14,8 @@ dependencies:
 - name: file-service
   repository: file://../file-service
   version: 0.1.0
-digest: sha256:57fb97afea504ea1217508354336b35c5ee0b9a8bc27e5ce7a5e957f089f75db
-generated: 2019-05-02T14:59:37.015512528+03:00
+- name: authenticator
+  repository: file://../authenticator
+  version: 0.1.0
+digest: sha256:5ade0c03fb400561c6e005cf450e78c56ecb3d9dc256204f9187fe697a9fcdef
+generated: "2019-05-13T14:50:48.098427194+03:00"
