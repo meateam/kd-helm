@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "d31a15d"
+  tag: "a902e1f"
 
 nameOverride: "download-service"
 fullnameOverride: "download-service"
