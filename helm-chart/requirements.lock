@@ -17,5 +17,8 @@ dependencies:
 - name: authenticator
   repository: file://../authenticator
   version: 0.1.0
-digest: sha256:5ade0c03fb400561c6e005cf450e78c56ecb3d9dc256204f9187fe697a9fcdef
-generated: "2019-05-13T14:50:48.098427194+03:00"
+- name: user-service
+  repository: file://../user-service
+  version: 0.1.0
+digest: sha256:299947b17603e819f3eeb801273931e3f4b63914b4b0450a31a7b72e0b122176
+generated: 2019-05-19T10:37:56.264144503+03:00
