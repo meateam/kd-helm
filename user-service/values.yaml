@@ -33,11 +33,11 @@ fullnameOverride: "user-service"
 #         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
   targetPort: 8080
 
 ingress:
-  enabled: true
+  enabled: false
 
   tls: []
   #  - secretName: chart-example-tls
