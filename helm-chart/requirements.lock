@@ -20,5 +20,8 @@ dependencies:
 - name: user-service
   repository: file://../user-service
   version: 0.1.0
-digest: sha256:299947b17603e819f3eeb801273931e3f4b63914b4b0450a31a7b72e0b122176
-generated: 2019-05-19T10:37:56.264144503+03:00
+- name: test-saml-idp
+  repository: file://../test-saml-idp
+  version: 0.1.0
+digest: sha256:3ced69d04e0cebe9539372cbfa06520d21b1c15b454c7d89647b60383440c4f4
+generated: 2019-05-20T15:12:43.04826096+03:00
