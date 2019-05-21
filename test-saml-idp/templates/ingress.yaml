@@ -17,7 +17,7 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-          - path: /simplesaml/?(.*)
+          - path: /simplesaml
             backend:
               serviceName: test-saml-idp
               servicePort: http
