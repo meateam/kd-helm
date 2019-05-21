@@ -14,9 +14,9 @@ dependencies:
   - name: file-service
     version: 0.1.0
     repository: file://../file-service
-  - name: authenticator
+  - name: authentication-service
     version: 0.1.0
-    repository: file://../authenticator
+    repository: file://../authentication-service
   - name: user-service
     version: 0.1.0
     repository: file://../user-service

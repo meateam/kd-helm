@@ -17,8 +17,8 @@ deployment:
         httpGet:
           path: /healthcheck
           port: 8080
-        initialDelaySeconds: 30
-        periodSeconds: 15
+        initialDelaySeconds: 5
+        periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
@@ -26,8 +26,8 @@ deployment:
         httpGet:
           path: /healthcheck
           port: 8080
-        initialDelaySeconds: 30
-        periodSeconds: 15
+        initialDelaySeconds: 5
+        periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3

@@ -5,27 +5,27 @@
 replicaCount: 1
 
 image:
-  tag: "378bbdd"
+  tag: "8ae5264"
 
 nameOverride: "upload-service"
 fullnameOverride: "upload-service"
 deployment:
   health:
-    enabled: false
+    enabled: true
     checks:
       livenessProbe:
         exec:
           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 30
-        periodSeconds: 15
+        initialDelaySeconds: 5
+        periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
         exec:
           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 30
-        periodSeconds: 15
+        initialDelaySeconds: 5
+        periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
