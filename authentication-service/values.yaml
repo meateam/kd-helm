@@ -7,8 +7,8 @@ replicaCount: 1
 image:
   tag: "a15cb95"
 
-nameOverride: "authenticator"
-fullnameOverride: "authenticator"
+nameOverride: "authentication-service"
+fullnameOverride: "authentication-service"
 # deployment:
 #   health:
 #     enabled: true
