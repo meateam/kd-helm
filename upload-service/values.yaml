@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "378bbdd"
+  tag: "63497df"
 
 nameOverride: "upload-service"
 fullnameOverride: "upload-service"
