@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "fbd97c2"
+  tag: "8866cd9"
 
 nameOverride: "api-gateway"
 fullnameOverride: "api-gateway"
