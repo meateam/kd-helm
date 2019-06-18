@@ -5,32 +5,32 @@
 replicaCount: 1
 
 image:
-  tag: "9a9eef3"
+  tag: "2c785ba"
 
 nameOverride: "authentication-service"
 fullnameOverride: "authentication-service"
-# deployment:
-#   health:
-#     enabled: true
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+deployment:
+  health:
+    enabled: true
+    checks:
+      livenessProbe:
+        httpGet:
+          path: /auth/healthcheck
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /auth/healthcheck
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 80

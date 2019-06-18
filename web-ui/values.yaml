@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "08af40a"
+  tag: "f86e4e0"
 
 nameOverride: "web-ui"
 fullnameOverride: "web-ui"
