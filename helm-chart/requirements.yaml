@@ -23,3 +23,6 @@ dependencies:
   - name: test-saml-idp
     version: 0.1.0
     repository: file://../test-saml-idp
+  - name: shraga
+    version: 0.1.0
+    repository: file://../shraga   
