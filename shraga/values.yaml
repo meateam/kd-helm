@@ -7,8 +7,8 @@ replicaCount: 1
 image:
   tag: "latest"
 
-nameOverride: "shragauser/shraga-proxy"
-fullnameOverride: "shragauser/shraga-proxy"
+nameOverride: "shragauser-shraga-proxy"
+fullnameOverride: "shragauser-shraga-proxy"
 # deployment:
 #   health:
 #     enabled: true
