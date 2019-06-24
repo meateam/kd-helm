@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "434beb3"
+  tag: "8473950"
 
 nameOverride: "authentication-service"
 fullnameOverride: "authentication-service"
