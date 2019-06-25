@@ -9,28 +9,28 @@ image:
 
 nameOverride: "shragauser-shraga-proxy"
 fullnameOverride: "shragauser-shraga-proxy"
-# deployment:
-#   health:
-#     enabled: true
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 5
-#         periodSeconds: 5
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 5
-#         periodSeconds: 5
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+deployment:
+  health:
+    enabled: true
+    checks:
+      livenessProbe:
+        httpGet:
+          path: /isAlive
+          port: 3000
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /isAlive
+          port: 3000
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 80

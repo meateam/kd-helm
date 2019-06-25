@@ -18,9 +18,9 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-          - path: /shraga
+          - path: /shraga/?(.*)
             backend:
-              serviceName: shraga
+              serviceName: shragauser-shraga-proxy
               servicePort: http
   {{- end }}
 {{- end -}}
