@@ -9,28 +9,26 @@ image:
 
 nameOverride: "file-service"
 fullnameOverride: "file-service"
-# deployment:
-#   health:
-#     enabled: false
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /
-#           port: 80
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /
-#           port: 80
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+deployment:
+  health:
+    enabled: true
+    checks:
+      livenessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 3
+        successThreshold: 1
+        failureThreshold: 5
+      readinessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 3
+        successThreshold: 1
+        failureThreshold: 5
 service:
   type: ClusterIP
   port: 8080
