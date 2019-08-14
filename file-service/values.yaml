@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "b9a9848"
+  tag: "3a3184a"
 
 nameOverride: "file-service"
 fullnameOverride: "file-service"
