@@ -20,6 +20,12 @@ dependencies:
   - name: user-service
     version: 0.1.0
     repository: file://../user-service
+  - name: permission-service
+    version: 0.1.0
+    repository: file://../permission-service
   - name: test-saml-idp
     version: 0.1.0
     repository: file://../test-saml-idp
+  - name: redis
+    version: 0.1.0
+    repository: file://../redis

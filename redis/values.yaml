@@ -5,36 +5,34 @@
 replicaCount: 1
 
 image:
-  tag: "develop"
+  tag: "alpine"
 
-nameOverride: "user-service"
-fullnameOverride: "user-service"
-# deployment:
-#   health:
-#     enabled: true
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+nameOverride: "redis"
+fullnameOverride: "redis"
+deployment:
+  health:
+    enabled: false
+    checks:
+      livenessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 6379
+  targetPort: 6379
 
 ingress:
   enabled: false

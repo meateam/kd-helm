@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "f4db0fc"
+  tag: "develop"
 
 nameOverride: "download-service"
 fullnameOverride: "download-service"
