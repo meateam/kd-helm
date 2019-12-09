@@ -29,3 +29,9 @@ dependencies:
   - name: redis
     version: 0.1.0
     repository: file://../redis
+  - name: search-service
+    version: 0.1.0
+    repository: file://../search-service
+  - name: gotenberg-service
+    version: 0.1.0
+    repository: file://../gotenberg-service

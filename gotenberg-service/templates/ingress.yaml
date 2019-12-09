@@ -1,0 +1,25 @@
+{{- $fullName := include "common.fullname" . -}}
+{{- $common := dict "Values" .Values.common -}} 
+{{- $noCommon := omit .Values "common" -}} 
+{{- $overrides := dict "Values" $noCommon -}} 
+{{- $noValues := omit . "Values" -}} 
+{{- with merge $noValues $overrides $common -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+{{ template "common.metadata" . }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}     
+spec:
+  rules:
+  {{- range .Values.global.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: /api/
+            backend:
+              serviceName: api-gateway
+              servicePort: http
+  {{- end }}
+{{- end -}}
