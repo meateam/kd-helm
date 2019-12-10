@@ -56,6 +56,10 @@ resources:
    cpu: 100m
    memory: 2048Mi
 
+securityContext:
+  privileged: false
+  runAsUser: 1001
+  
 nodeSelector: {}
 
 tolerations: []

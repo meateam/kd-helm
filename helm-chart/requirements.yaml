@@ -32,6 +32,6 @@ dependencies:
   - name: search-service
     version: 0.1.0
     repository: file://../search-service
-  - name: gotenberg-service
+  - name: gotenberg
     version: 0.1.0
-    repository: file://../gotenberg-service
+    repository: file://../gotenberg
