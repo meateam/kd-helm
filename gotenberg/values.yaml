@@ -65,3 +65,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+volumes:
+  - name: gotenberg-tmp-volume
+    emptyDir:
+      medium: Memory
+      sizeLimit: 2Gi
