@@ -7,16 +7,16 @@ replicaCount: 2
 image:
   tag: "develop"
 
-nameOverride: "file-service"
-fullnameOverride: "file-service"
+nameOverride: "user-service"
+fullnameOverride: "user-service"
 # deployment:
 #   health:
-#     enabled: false
+#     enabled: true
 #     checks:
 #       livenessProbe:
 #         httpGet:
-#           path: /
-#           port: 80
+#           path: /healthcheck
+#           port: 8080
 #         initialDelaySeconds: 30
 #         periodSeconds: 15
 #         timeoutSeconds: 1
@@ -24,8 +24,8 @@ fullnameOverride: "file-service"
 #         failureThreshold: 3
 #       readinessProbe:
 #         httpGet:
-#           path: /
-#           port: 80
+#           path: /healthcheck
+#           port: 8080
 #         initialDelaySeconds: 30
 #         periodSeconds: 15
 #         timeoutSeconds: 1

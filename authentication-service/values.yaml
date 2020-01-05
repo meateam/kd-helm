@@ -7,16 +7,16 @@ replicaCount: 2
 image:
   tag: "develop"
 
-nameOverride: "file-service"
-fullnameOverride: "file-service"
+nameOverride: "authentication-service"
+fullnameOverride: "authentication-service"
 # deployment:
 #   health:
-#     enabled: false
+#     enabled: true
 #     checks:
 #       livenessProbe:
 #         httpGet:
-#           path: /
-#           port: 80
+#           path: /healthcheck
+#           port: 8080
 #         initialDelaySeconds: 30
 #         periodSeconds: 15
 #         timeoutSeconds: 1
@@ -24,8 +24,8 @@ fullnameOverride: "file-service"
 #         failureThreshold: 3
 #       readinessProbe:
 #         httpGet:
-#           path: /
-#           port: 80
+#           path: /healthcheck
+#           port: 8080
 #         initialDelaySeconds: 30
 #         periodSeconds: 15
 #         timeoutSeconds: 1
@@ -33,11 +33,11 @@ fullnameOverride: "file-service"
 #         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
   targetPort: 8080
 
 ingress:
-  enabled: false
+  enabled: true
 
   tls: []
   #  - secretName: chart-example-tls

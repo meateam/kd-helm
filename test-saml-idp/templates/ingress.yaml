@@ -17,9 +17,9 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-          - path: /api/
+          - path: /simplesaml
             backend:
-              serviceName: api-gateway
+              serviceName: test-saml-idp
               servicePort: http
   {{- end }}
 {{- end -}}

@@ -1,0 +1,61 @@
+{{- $common := dict "Values" .Values.common -}} 
+{{- $noCommon := omit .Values "common" -}} 
+{{- $overrides := dict "Values" $noCommon -}} 
+{{- $noValues := omit . "Values" -}} 
+{{- with merge $noValues $overrides $common -}}
+apiVersion: apps/v1beta2
+kind: Deployment
+{{ template "common.metadata" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "common.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "common.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}/meateam/{{ template "common.name" . }}:{{ .Values.image.tag }}"
+          envFrom:
+          - configMapRef:
+              name: kd.config
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          volumeMounts:
+            - name: gotenberg-tmp-volume
+              mountPath: /gotenberg/tmp
+            - name: gotenberg-tmp-volume
+              mountPath: /tmp
+        
+{{- if .Values.deployment.health.enabled -}}
+{{- with .Values.deployment.health.checks }}
+{{ toYaml . | indent 10 }}                 
+{{- end }}
+{{- end }}
+{{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.volumes }}
+      volumes:
+{{ toYaml . | indent 8 }}
+    {{- end }}

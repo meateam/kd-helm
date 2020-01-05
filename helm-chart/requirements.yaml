@@ -14,3 +14,24 @@ dependencies:
   - name: file-service
     version: 0.1.0
     repository: file://../file-service
+  - name: authentication-service
+    version: 0.1.0
+    repository: file://../authentication-service
+  - name: user-service
+    version: 0.1.0
+    repository: file://../user-service
+  - name: permission-service
+    version: 0.1.0
+    repository: file://../permission-service
+  - name: test-saml-idp
+    version: 0.1.0
+    repository: file://../test-saml-idp
+  - name: redis
+    version: 0.1.0
+    repository: file://../redis
+  - name: search-service
+    version: 0.1.0
+    repository: file://../search-service
+  - name: gotenberg
+    version: 0.1.0
+    repository: file://../gotenberg

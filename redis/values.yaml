@@ -2,37 +2,37 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 3
+replicaCount: 1
 
 image:
-  tag: "develop"
+  tag: "alpine"
 
-nameOverride: "download-service"
-fullnameOverride: "download-service"
+nameOverride: "redis"
+fullnameOverride: "redis"
 deployment:
   health:
-    enabled: true
+    enabled: false
     checks:
       livenessProbe:
         exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 5
-        periodSeconds: 5
+          command: ["/bin/grpc_health_probe", "-addr=8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
         exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 5
-        periodSeconds: 5
+          command: ["/bin/grpc_health_probe", "-addr=8080"]
+        initialDelaySeconds: 15
+        periodSeconds: 15
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 6379
+  targetPort: 6379
 
 ingress:
   enabled: false
@@ -42,17 +42,17 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources:
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-   cpu: 200m
-   memory: 4096Mi
-  requests:
-   cpu: 200m
-   memory: 2048Mi
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
 
 nodeSelector: {}
 

@@ -17,9 +17,9 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-          - path: /api/
+          - path: /auth
             backend:
-              serviceName: api-gateway
+              serviceName: authentication-service
               servicePort: http
   {{- end }}
 {{- end -}}

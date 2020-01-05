@@ -5,25 +5,27 @@
 replicaCount: 3
 
 image:
-  tag: "develop"
+  tag: "6"
 
-nameOverride: "download-service"
-fullnameOverride: "download-service"
+nameOverride: "gotenberg"
+fullnameOverride: "gotenberg"
 deployment:
   health:
     enabled: true
     checks:
       livenessProbe:
-        exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        httpGet:
+          path: /ping
+          port: 8080
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
-        exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        httpGet:
+          path: /ping
+          port: 8080
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
@@ -48,14 +50,24 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 200m
+   cpu: 400m
    memory: 4096Mi
   requests:
-   cpu: 200m
+   cpu: 100m
    memory: 2048Mi
 
+securityContext:
+  privileged: false
+  runAsUser: 1001
+  
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+volumes:
+  - name: gotenberg-tmp-volume
+    emptyDir:
+      medium: Memory
+      sizeLimit: 2Gi
