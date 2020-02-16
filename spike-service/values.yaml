@@ -5,39 +5,39 @@
 replicaCount: 1
 
 image:
-  tag: "drop-latest"
+  tag: "develop"
 
-nameOverride: "api-gateway"
-fullnameOverride: "api-gateway"
-deployment:
-  health:
-    enabled: true
-    checks:
-      livenessProbe:
-        httpGet:
-          path: /api/healthcheck
-          port: 8080
-        initialDelaySeconds: 5
-        periodSeconds: 5
-        timeoutSeconds: 1
-        successThreshold: 1
-        failureThreshold: 3
-      readinessProbe:
-        httpGet:
-          path: /api/healthcheck
-          port: 8080
-        initialDelaySeconds: 5
-        periodSeconds: 5
-        timeoutSeconds: 1
-        successThreshold: 1
-        failureThreshold: 3
+nameOverride: "spike-service"
+fullnameOverride: "spike-service"
+# deployment:
+#   health:
+#     enabled: true
+#     checks:
+#       livenessProbe:
+#         httpGet:
+#           path: /
+#           port: 80
+#         initialDelaySeconds: 30
+#         periodSeconds: 15
+#         timeoutSeconds: 1
+#         successThreshold: 1
+#         failureThreshold: 3
+#       readinessProbe:
+#         httpGet:
+#           path: /
+#           port: 80
+#         initialDelaySeconds: 30
+#         periodSeconds: 15
+#         timeoutSeconds: 1
+#         successThreshold: 1
+#         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
   targetPort: 8080
 
 ingress:
-  enabled: true
+  enabled: false
 
   tls: []
   #  - secretName: chart-example-tls
@@ -50,11 +50,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 200m
-   memory: 8192Mi
+   cpu: 100m
+   memory: 1024Mi
   requests:
-   cpu: 200m
-   memory: 4096Mi
+   cpu: 50m
+   memory: 1024Mi
 
 nodeSelector: {}
 
