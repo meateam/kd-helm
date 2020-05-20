@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "1.0"
+  tag: "v1.2"
 
 nameOverride: "search-service"
 fullnameOverride: "search-service"

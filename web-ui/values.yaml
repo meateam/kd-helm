@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "drop-latest"
+  tag: "v1.2"
 
 nameOverride: "web-ui"
 fullnameOverride: "web-ui"
