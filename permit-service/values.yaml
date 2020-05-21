@@ -9,26 +9,26 @@ image:
 
 nameOverride: "permit-service"
 fullnameOverride: "permit-service"
-# deployment:
-#   health:
-#     enabled: false
-#     checks:
-#       livenessProbe:
-#         exec:
-#           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-#         initialDelaySeconds: 5
-#         periodSeconds: 5
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         exec:
-#           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-#         initialDelaySeconds: 5
-#         periodSeconds: 5
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+deployment:
+  health:
+    enabled: false
+    checks:
+      livenessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        exec:
+          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 8080
