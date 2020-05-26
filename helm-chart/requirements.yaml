@@ -5,6 +5,9 @@ dependencies:
   - name: api-gateway
     version: 0.1.0
     repository: file://../api-gateway
+  - name: delegation-service
+    version: 0.1.0
+    repository: file://../delegation-service
   - name: download-service
     version: 0.1.0
     repository: file://../download-service
@@ -23,6 +26,9 @@ dependencies:
   - name: permission-service
     version: 0.1.0
     repository: file://../permission-service
+  - name: permit-service
+    version: 0.1.0
+    repository: file://../permit-service
   - name: test-saml-idp
     version: 0.1.0
     repository: file://../test-saml-idp
@@ -32,6 +38,9 @@ dependencies:
   - name: search-service
     version: 0.1.0
     repository: file://../search-service
+  - name: spike-service
+    version: 0.1.0
+    repository: file://../spike-service
   - name: gotenberg
     version: 0.1.0
     repository: file://../gotenberg

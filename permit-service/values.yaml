@@ -7,11 +7,11 @@ replicaCount: 1
 image:
   tag: "v1.2"
 
-nameOverride: "upload-service"
-fullnameOverride: "upload-service"
+nameOverride: "permit-service"
+fullnameOverride: "permit-service"
 deployment:
   health:
-    enabled: true
+    enabled: false
     checks:
       livenessProbe:
         exec:
@@ -49,10 +49,10 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
    cpu: 200m
-   memory: 4096Mi
+   memory: 256Mi
   requests:
-   cpu: 200m
-   memory: 2048Mi
+   cpu: 100m
+   memory: 256Mi
 
 nodeSelector: {}
 
