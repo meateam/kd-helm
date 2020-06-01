@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v1.2"
+  tag: "unauthorized"
 
 nameOverride: "authentication-service"
 fullnameOverride: "authentication-service"
@@ -50,11 +50,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 100m
-   memory: 256Mi
+   cpu: 400m
+   memory: 1024Mi
   requests:
-   cpu: 50m
-   memory: 256Mi
+   cpu: 200m
+   memory: 1024Mi
 
 nodeSelector: {}
 
