@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  tag: "v1.2"
+  tag: "develop"
 
-nameOverride: "web-ui"
-fullnameOverride: "web-ui"
+nameOverride: "drive-ui"
+fullnameOverride: "drive-ui"
 deployment:
   health:
     enabled: true
