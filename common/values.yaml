@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: bluehub.azurecr.io
+  repository: drivehub.azurecr.io
   pullPolicy: Always
 
 nameOverride: ""
