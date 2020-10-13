@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v2.0"
+  tag: "rollback"
 
 nameOverride: "api-gateway"
 fullnameOverride: "api-gateway"
