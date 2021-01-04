@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v2.0.2"
+  tag: "v2.3.1"
 
 nameOverride: "drive-ui"
 fullnameOverride: "drive-ui"
