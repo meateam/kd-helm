@@ -17,6 +17,9 @@ dependencies:
   - name: file-service
     version: 0.1.0
     repository: file://../file-service
+  - name: quota-approval-service
+    version: 0.1.0
+    repository: file://../quota-approval-service
   - name: authentication-service
     version: 0.1.0
     repository: file://../authentication-service
