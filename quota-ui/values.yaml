@@ -5,25 +5,27 @@
 replicaCount: 1
 
 image:
-  tag: "quotaApproval"
+  tag: "develop"
 
-nameOverride: "file-service"
-fullnameOverride: "file-service"
+nameOverride: "quota-ui"
+fullnameOverride: "quota-ui"
 deployment:
   health:
     enabled: true
     checks:
       livenessProbe:
-        exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        httpGet:
+          path: /quota-ui
+          port: 80
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
-        exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+        httpGet:
+          path: /quota-ui
+          port: 80
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
@@ -31,11 +33,11 @@ deployment:
         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 80
+  targetPort: 80
 
 ingress:
-  enabled: false
+  enabled: true
 
   tls: []
   #  - secretName: chart-example-tls
@@ -48,11 +50,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 100m
-   memory: 256Mi
+   cpu: 1
+   memory: 128Mi
   requests:
-   cpu: 50m
-   memory: 256Mi
+   cpu: 500m
+   memory: 128Mi
 
 nodeSelector: {}
 
