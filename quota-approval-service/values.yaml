@@ -16,17 +16,17 @@ deployment:
       livenessProbe:
         exec:
           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 5
+        initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 2
+        timeoutSeconds: 5
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
         exec:
           command: ["/bin/grpc_health_probe", "-addr=:8080"]
-        initialDelaySeconds: 5
+        initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 2
+        timeoutSeconds: 5
         successThreshold: 1
         failureThreshold: 3
 service:

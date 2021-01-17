@@ -17,7 +17,7 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-          - path: /
+          - path: /quota-ui/?(.*)
             backend:
               serviceName: quota-ui
               servicePort: http

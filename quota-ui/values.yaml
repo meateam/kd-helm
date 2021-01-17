@@ -15,20 +15,20 @@ deployment:
     checks:
       livenessProbe:
         httpGet:
-          path: /quota-ui
+          path: /quota-ui/isalive
           port: 80
-        initialDelaySeconds: 5
+        initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 1
+        timeoutSeconds: 2
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
         httpGet:
-          path: /quota-ui
+          path: /quota-ui/isalive
           port: 80
-        initialDelaySeconds: 5
+        initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 1
+        timeoutSeconds: 2
         successThreshold: 1
         failureThreshold: 3
 service:
