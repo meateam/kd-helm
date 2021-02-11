@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v2.3.1"
+  tag: "develop"
 
 nameOverride: "api-gateway"
 fullnameOverride: "api-gateway"

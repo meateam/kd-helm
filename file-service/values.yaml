@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v3.0.0"
+  tag: "develop"
 
 nameOverride: "file-service"
 fullnameOverride: "file-service"
