@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "v2.1.0"
+  tag: "develop"
 
 nameOverride: "user-service"
 fullnameOverride: "user-service"
