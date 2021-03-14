@@ -5,13 +5,13 @@
 replicaCount: 1
 
 image:
-  tag: "v2.0.0"
+  tag: "add-cts-intergation"
 
-nameOverride: "permit-service"
-fullnameOverride: "permit-service"
+nameOverride: "dropbox-service"
+fullnameOverride: "dropbox-service"
 deployment:
   health:
-    enabled: false
+    enabled: true
     checks:
       livenessProbe:
         exec:
@@ -48,10 +48,10 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 200m
+   cpu: 100m
    memory: 256Mi
   requests:
-   cpu: 100m
+   cpu: 50m
    memory: 256Mi
 
 nodeSelector: {}
