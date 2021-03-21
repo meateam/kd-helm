@@ -5,7 +5,8 @@
 replicaCount: 1
 
 image:
-  tag: "develop"
+  tag: "mattan-yoav"
+  # tag: "develop"
 
 nameOverride: "quota-ui"
 fullnameOverride: "quota-ui"
@@ -38,6 +39,8 @@ service:
 
 ingress:
   enabled: true
+  annotations:
+  #  nginx.ingress.kubernetes.io/rewrite-target: /$2
 
   tls: []
   #  - secretName: chart-example-tls

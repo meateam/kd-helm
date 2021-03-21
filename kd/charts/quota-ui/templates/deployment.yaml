@@ -1,0 +1,61 @@
+---
+# Source: kd/charts/quota-ui/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: quota-ui
+  labels:
+    app.kubernetes.io/name: quota-ui
+    helm.sh/chart: quota-ui-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: quota-ui
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: quota-ui
+        app.kubernetes.io/instance: release-name
+    spec:
+      containers:
+        - name: quota-ui
+          image: "drivehub.azurecr.io/meateam/quota-ui:develop"
+          envFrom:
+          - configMapRef:
+              name: kd.config
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /quota-ui/isalive
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 2
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /quota-ui/isalive
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 2
+          
+          resources:
+            limits:
+              cpu: 1
+              memory: 128Mi
+            requests:
+              cpu: 500m
+              memory: 128Mi
+            

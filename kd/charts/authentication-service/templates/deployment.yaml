@@ -1,0 +1,61 @@
+---
+# Source: kd/charts/authentication-service/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: authentication-service
+  labels:
+    app.kubernetes.io/name: authentication-service
+    helm.sh/chart: authentication-service-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: authentication-service
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: authentication-service
+        app.kubernetes.io/instance: release-name
+    spec:
+      containers:
+        - name: authentication-service
+          image: "drivehub.azurecr.io/meateam/authentication-service:v2.1.0"
+          envFrom:
+          - configMapRef:
+              name: kd.config
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /auth/healthcheck
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /auth/healthcheck
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 1
+          
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            

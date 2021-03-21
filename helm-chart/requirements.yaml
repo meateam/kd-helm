@@ -1,7 +1,10 @@
 dependencies:
-  - name: drive-ui
+  # - name: drive-ui
+  #   version: 0.1.0
+  #   repository: file://../drive-ui
+  - name: quota-ui
     version: 0.1.0
-    repository: file://../drive-ui
+    repository: file://../quota-ui
   - name: api-gateway
     version: 0.1.0
     repository: file://../api-gateway

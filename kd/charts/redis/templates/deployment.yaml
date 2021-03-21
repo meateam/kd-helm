@@ -1,0 +1,37 @@
+---
+# Source: kd/charts/redis/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app.kubernetes.io/name: redis
+    helm.sh/chart: redis-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: redis
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: redis
+        app.kubernetes.io/instance: release-name
+    spec:
+      containers:
+        - name: redis
+          image: "drivehub.azurecr.io/meateam/redis:alpine"
+          envFrom:
+          - configMapRef:
+              name: kd.config
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 6379
+              protocol: TCP
+          resources:
+            {}
+            

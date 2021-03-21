@@ -1,0 +1,37 @@
+---
+# Source: kd/charts/test-saml-idp/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: test-saml-idp
+  labels:
+    app.kubernetes.io/name: test-saml-idp
+    helm.sh/chart: test-saml-idp-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: test-saml-idp
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: test-saml-idp
+        app.kubernetes.io/instance: release-name
+    spec:
+      containers:
+        - name: test-saml-idp
+          image: "drivehub.azurecr.io/meateam/test-saml-idp:latest"
+          envFrom:
+          - configMapRef:
+              name: kd.config
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            {}
+            

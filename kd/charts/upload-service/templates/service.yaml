@@ -1,0 +1,21 @@
+---
+# Source: kd/charts/upload-service/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: upload-service
+  labels:
+    app.kubernetes.io/name: upload-service
+    helm.sh/chart: upload-service-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: upload-service
+    app.kubernetes.io/instance: release-name

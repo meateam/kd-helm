@@ -1,0 +1,21 @@
+---
+# Source: kd/charts/download-service/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: download-service
+  labels:
+    app.kubernetes.io/name: download-service
+    helm.sh/chart: download-service-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: download-service
+    app.kubernetes.io/instance: release-name

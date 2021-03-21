@@ -1,0 +1,21 @@
+---
+# Source: kd/charts/drive-ui/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: drive-ui
+  labels:
+    app.kubernetes.io/name: drive-ui
+    helm.sh/chart: drive-ui-0.1.0
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: drive-ui
+    app.kubernetes.io/instance: release-name
