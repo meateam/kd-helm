@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
   tag: "develop"
@@ -49,10 +49,10 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
    cpu: 200m
-   memory: 2048Mi
+   memory: 512Mi
   requests:
    cpu: 100m
-   memory: 1024Mi
+   memory: 256Mi
 
 nodeSelector: {}
 

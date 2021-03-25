@@ -2,30 +2,28 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
-  tag: "develop"
+  tag: 'add-cts-intergation'
 
-nameOverride: "web-ui"
-fullnameOverride: "web-ui"
+nameOverride: 'dropbox-service'
+fullnameOverride: 'dropbox-service'
 deployment:
   health:
     enabled: true
     checks:
       livenessProbe:
-        httpGet:
-          path: /
-          port: 80
+        exec:
+          command: ['/bin/grpc_health_probe', '-addr=:8080']
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
         successThreshold: 1
         failureThreshold: 3
       readinessProbe:
-        httpGet:
-          path: /
-          port: 80
+        exec:
+          command: ['/bin/grpc_health_probe', '-addr=:8080']
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
@@ -33,11 +31,11 @@ deployment:
         failureThreshold: 3
 service:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 8080
+  targetPort: 8080
 
 ingress:
-  enabled: true
+  enabled: false
 
   tls: []
   #  - secretName: chart-example-tls
@@ -50,11 +48,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 100m
-   memory: 128Mi
+    cpu: 100m
+    memory: 256Mi
   requests:
-   cpu: 50m
-   memory: 128Mi
+    cpu: 50m
+    memory: 256Mi
 
 nodeSelector: {}
 

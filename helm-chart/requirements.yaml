@@ -1,10 +1,13 @@
 dependencies:
-  - name: web-ui
+  - name: drive-ui
     version: 0.1.0
-    repository: file://../web-ui
+    repository: file://../drive-ui
   - name: api-gateway
     version: 0.1.0
     repository: file://../api-gateway
+  - name: dropbox-service
+    version: 0.1.0
+    repository: file://../dropbox-service
   - name: download-service
     version: 0.1.0
     repository: file://../download-service
@@ -32,6 +35,9 @@ dependencies:
   - name: search-service
     version: 0.1.0
     repository: file://../search-service
+  - name: spike-service
+    version: 0.1.0
+    repository: file://../spike-service
   - name: gotenberg
     version: 0.1.0
     repository: file://../gotenberg

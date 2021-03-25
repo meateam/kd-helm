@@ -19,7 +19,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: web-ui
+              serviceName: drive-ui
               servicePort: http
   {{- end }}
 {{- end -}}

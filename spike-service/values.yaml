@@ -7,11 +7,11 @@ replicaCount: 1
 image:
   tag: "develop"
 
-nameOverride: "permission-service"
-fullnameOverride: "permission-service"
+nameOverride: "spike-service"
+fullnameOverride: "spike-service"
 deployment:
   health:
-    enabled: true
+    enabled: false
     checks:
       livenessProbe:
         exec:
@@ -48,10 +48,10 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 200m
-   memory: 512Mi
-  requests:
    cpu: 100m
+   memory: 256Mi
+  requests:
+   cpu: 50m
    memory: 256Mi
 
 nodeSelector: {}

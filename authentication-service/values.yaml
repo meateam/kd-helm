@@ -2,35 +2,35 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
   tag: "develop"
 
 nameOverride: "authentication-service"
 fullnameOverride: "authentication-service"
-# deployment:
-#   health:
-#     enabled: true
-#     checks:
-#       livenessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
-#       readinessProbe:
-#         httpGet:
-#           path: /healthcheck
-#           port: 8080
-#         initialDelaySeconds: 30
-#         periodSeconds: 15
-#         timeoutSeconds: 1
-#         successThreshold: 1
-#         failureThreshold: 3
+deployment:
+  health:
+    enabled: true
+    checks:
+      livenessProbe:
+        httpGet:
+          path: /auth/healthcheck
+          port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /auth/healthcheck
+          port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 15
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
 service:
   type: ClusterIP
   port: 80
@@ -51,10 +51,10 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
    cpu: 100m
-   memory: 1024Mi
+   memory: 256Mi
   requests:
    cpu: 50m
-   memory: 1024Mi
+   memory: 256Mi
 
 nodeSelector: {}
 
