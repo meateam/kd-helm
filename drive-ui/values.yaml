@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  tag: "local-office"
+  tag: 'add-cts-intergation'
 
-nameOverride: "drive-ui"
-fullnameOverride: "drive-ui"
+nameOverride: 'drive-ui'
+fullnameOverride: 'drive-ui'
 deployment:
   health:
     enabled: true
@@ -50,11 +50,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 1
-   memory: 128Mi
+    cpu: 1
+    memory: 128Mi
   requests:
-   cpu: 500m
-   memory: 128Mi
+    cpu: 500m
+    memory: 128Mi
 
 nodeSelector: {}
 
