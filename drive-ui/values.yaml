@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: 'add-cts-intergation'
+  tag: 'develop'
 
 nameOverride: 'drive-ui'
 fullnameOverride: 'drive-ui'

@@ -5,17 +5,17 @@
 replicaCount: 1
 
 image:
-  tag: "add-cts-intergation"
+  tag: 'add-cts-intergation'
 
-nameOverride: "dropbox-service"
-fullnameOverride: "dropbox-service"
+nameOverride: 'dropbox-service'
+fullnameOverride: 'dropbox-service'
 deployment:
   health:
     enabled: true
     checks:
       livenessProbe:
         exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+          command: ['/bin/grpc_health_probe', '-addr=:8080']
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
@@ -23,7 +23,7 @@ deployment:
         failureThreshold: 3
       readinessProbe:
         exec:
-          command: ["/bin/grpc_health_probe", "-addr=:8080"]
+          command: ['/bin/grpc_health_probe', '-addr=:8080']
         initialDelaySeconds: 5
         periodSeconds: 5
         timeoutSeconds: 1
@@ -48,11 +48,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 100m
-   memory: 256Mi
+    cpu: 100m
+    memory: 256Mi
   requests:
-   cpu: 50m
-   memory: 256Mi
+    cpu: 50m
+    memory: 256Mi
 
 nodeSelector: {}
 
