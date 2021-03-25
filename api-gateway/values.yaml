@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  tag: "develop"
+  tag: 'develop'
 
-nameOverride: "api-gateway"
-fullnameOverride: "api-gateway"
+nameOverride: 'api-gateway'
+fullnameOverride: 'api-gateway'
 deployment:
   health:
     enabled: true
@@ -50,11 +50,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 200m
-   memory: 2048Mi
+    cpu: 200m
+    memory: 2048Mi
   requests:
-   cpu: 200m
-   memory: 1024Mi
+    cpu: 200m
+    memory: 1024Mi
 
 nodeSelector: {}
 
